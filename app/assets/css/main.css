@@ -12,10 +12,27 @@ body {
 }
 
 /* Titles */
+ha1, ha2, ha3, ha4, ha5, ha6 {
+    font-family: "Raleway";
+    font-weight: 300;
+    color: #fff;
+}
+
+
+
+/* Paragraph & Typographic */
+pa {
+    line-height: 28px;
+    margin-bottom: 25px;
+      color: #fff;
+}
+
+/* Titles */
 h1, h2, h3, h4, h5, h6 {
     font-family: "Raleway";
     font-weight: 300;
-    color: #333;
+    color: #fff;
+    /*  color: #333;*/
 }
 
 
@@ -23,6 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 p {
     line-height: 28px;
     margin-bottom: 25px;
+       color: #fff;
 }
 
 .centered {
@@ -72,9 +90,15 @@ a:after {
    ========================================================================== */
 
 #headerwrap {
-	background-color: #34495e;
+	background-color: #000000;
 	padding-top: 60px;
 }
+
+#headerwrap-original {
+    background-color: #34495e;
+    padding-top: 60px;
+}
+
 
 #headerwrap h1 {
 	margin-top: 30px;
@@ -102,6 +126,9 @@ a:after {
 /* intro Wrap */
 
 #intro {
+    /*background-color: #555555;*/
+    background-color: #000;
+    
 	padding-top: 50px;
 	border-top: #bdc3c7 solid 5px;
 }
