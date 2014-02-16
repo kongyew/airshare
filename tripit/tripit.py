@@ -392,7 +392,7 @@ class TripIt(object):
 
         response_data = self._do_request(verb, entity, params, post_args)
         #return _xml_to_py(response_data)
-        return json.load(response_data)
+        return json.loads(response_data)
 
     def get_trip(self, id, filter=None):
         if filter is None:
