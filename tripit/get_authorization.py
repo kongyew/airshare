@@ -4,7 +4,7 @@ import sys
 
 import tripit
 
-def main():
+def main(argv):
 	api_url = 'https://api.tripit.com'
 	consumer_key = ''
 	consumer_secret = ''
