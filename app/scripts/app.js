@@ -10,7 +10,7 @@ var app = angular.module('seatsplitterApp', [
   'mgcrea.ngStrap.navbar',
   'mgcrea.ngStrap.select',
   'facebook',
-  'google-maps',
+  'google-maps'
 
     ])
   .config(function ($routeProvider) {

@@ -1,5 +1,5 @@
 'use strict';
-
+//, ["AzureCtrl"]
 angular.module('seatsplitterApp')
   .controller('SigninCtrl', function ($scope) {
     $scope.awesomeThings = [
@@ -7,6 +7,7 @@ angular.module('seatsplitterApp')
       'AngularJS',
       'Karma'
     ];
-
+    $scope.azureURL = 'https://developerweek.azure-mobile.net/';
+    $scope.azureAppKey ='nQpITnITZsGULqGjymhntSfiesvxjU59';
     
   });

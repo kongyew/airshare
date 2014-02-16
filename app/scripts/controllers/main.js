@@ -8,8 +8,7 @@ angular.module('seatsplitterApp')
       'Karma'
     ];
 
-    $scope.azureURL = 'https://developerweek.azure-mobile.net/';
-    $scope.azureAppKey ='nQpITnITZsGULqGjymhntSfiesvxjU59';
+
   });
 
 

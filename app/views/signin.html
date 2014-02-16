@@ -3,7 +3,7 @@
 
 
 <!-- INTRO WRAP -->
-<div id="login" class="span12">
+<div id="login" class="span12" ng-controller="AuthenticationController">
     <div class="container">
 
         <div class="row-fluid">
@@ -11,14 +11,13 @@
             <div class="span4" id="login-side"></div>
             <div class="span6 text-center login-form" id="form-login">
 
-
                 <form class="form-horizontal well">
                     <section id="LoginFacebook">
                         <header class="highlight">Sign In Using:</header>
                         <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
 
                         <p class="helper-text">We never share anything without your explicit approval</p>
-                        <img src="images/yeoman.png" ng-click="authenticate('Facebook')" />
+                  <!--      <img src="images/yeoman.png" ng-click="authenticate('Facebook')" />-->
                     </section>
 
                     <fieldset>
