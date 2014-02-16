@@ -6,8 +6,40 @@
 
         <div class="col-lg-4">
             <h2>Find Flight</h2>
-            <div >
-                <form role="form" action="#" method="post" enctype="plain">
+            <div>
+                <ul class="nav nav-tabs">
+                    <li class="active"><a href="#tab1">By existing itinerary</a></li>
+                    <li><a href="#tab2">By date and destination</a></li>
+                    <li><a href="#tab3">By date</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="tab1">
+                        <div class="flight-segment" ng-repeat="flight in segments">
+                            <div class="flight">
+                                <div class="date">{{flight.row[3]}}</div>
+                                <div class="flight-number">{{flight.row[4]}} {{flight.row[0]}}</div>
+                                <div class="cities">{{flight.row[6]}} ({{flight.row[9]}}) to {{flight.row[7]}} ({{flight.row[10]}})</div>
+                            </div>
+                            <div class="match">
+                                <ul>
+                                    <li><span class="glyphicon glyphicon-plane"></span> Seat Space</li>
+                                    <li><span class="glyphicon glyphicon-glass"></span> Lounge Access</li>
+                                    <li><span class="glyphicon glyphicon-road"></span> Priority Boarding</li>
+                                </ul>
+                            </div>
+                            <div class="reputation" ng-class="reputation({{flight.row[1]}})">
+                                <span class="glyphicon glyphicon-ok"></span> {{flight.row[1]}}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab2">
+                        
+                    </div>
+                    <div class="tab-pane" id="tab3">
+                        
+                    </div>
+                </div>
+                <!--<form role="form" action="#" method="post" enctype="plain">
                     <div class="form-group">
                         <label for="flightFrom">From</label>
                         <label>Single select:&nbsp;</label>
@@ -31,7 +63,7 @@
                     </div>
                     <br>
                     <button tabindex="6" ng-click="search()" ng-show="!searchFormData.searched" type="submit" class="btn btn-large btn-success">SUBMIT</button>
-                </form>
+                </form>-->
             </div>
         </div>
 
@@ -64,3 +96,90 @@ LinkedIn
 AngelList
     -->
 </div>
+<script>
+    var graphRequest = $.ajax({
+        type: 'POST',
+        url: 'http://localhost:7474/db/data/transaction',
+        contentType: 'application/json',
+        dataType: 'json',
+        data: JSON.stringify({
+            "statements": [
+                {
+                    "statement" : "MATCH (b:Person)-[:BOOKED_ON]->(c:Flight)<-[:BOOKED_ON]-(a:Person) WHERE b.address = \"brandon.elizabeth@gmail.com\" RETURN c.marketing_flight_number, a.reputation, a.status, c.date, c.marketing_airline, c.time, c.start_city_name, c.end_airport_city, a.lounge, c.start_airport_code, c.end_airport_code ORDER BY c.marketing_flight_number",
+                    "resultDataContents": ["row", "graph"],
+                    "parameters" : {
+                        "props" : {
+                            "name" : "My Node"
+                        }
+                    }
+                }
+            ]
+        }),
+        processData: false
+    }).done(function(msg) {
+        console.log(JSON.stringify(msg));
+    });
+</script>
+<style type="text/css">
+#tab1 .flight-segment {
+    position: relative;
+    margin: 1em 0;
+}
+
+#tab1 .flight div {
+    display: inline-block;
+    margin-right: 1em;
+}
+
+#tab1 .flight div.flight-number {
+    font-weight: 700;
+}
+
+#tab1 .match ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#tab1 .match li {
+    display: inline-block;
+    border: 1px solid #fff;
+    -webkit-border-radius: 4px;
+    padding: 0 0.5em;
+}
+
+#tab1 .match .glyphicon {
+    font-size: 0.8em;
+    margin-right: .5em;
+}
+
+#tab1 .reputation {
+    font-size: 2em;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3.5em;
+    padding: 0 .25em;
+}
+
+#tab1 .reputation .glyphicon {
+    font-size: .75em;
+    margin-right: .25em;
+    position: relative;
+    top: -.2em;
+}
+
+#tab1 .reputation.best {
+    background: rgb(0, 200, 0);
+}
+
+#tab1 .reputation.good {
+    background: rgb(234, 181, 0);
+}
+
+#tab1 .reputation.bad {
+    background: rgb(243, 0, 6);
+}
+
+</style>
