@@ -133,7 +133,17 @@ a:after {
 	border-top: #bdc3c7 solid 5px;
 }
 
+
+
+#signin {
+      background-color: #000;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
 #features {
+      background-color: #000;
 	padding-top: 50px;
 	padding-bottom: 50px;
 }
@@ -145,6 +155,7 @@ a:after {
 /* Showcase Wrap */
 
 #showcase {
+      background-color: #000;
 	display: block;
 	background-color: #34495e;
 	padding-top: 50px;

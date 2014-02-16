@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "dependencies": {
       "express": "latest",
-      "prerender-node": "latest"
+      "prerender-node": "latest",
+       "sendgrid": "0.4.4"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

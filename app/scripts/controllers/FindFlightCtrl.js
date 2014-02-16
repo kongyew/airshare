@@ -1,8 +1,9 @@
 'use strict';
 
 angular.module('seatsplitterApp')
-  .controller('FindFlightCtrl', function ($scope,$http) {
+  .controller('FindFlightCtrl', ['$scope', '$http', '$rootScope', function ($scope, $http, $rootScope) {
 
+  
 // http://mgcrea.github.io/angular-strap/##selects
     // $scope.segments = [
     //         {
@@ -98,6 +99,8 @@ angular.module('seatsplitterApp')
     //            }
     //         }
     //      ];
+
+   console.log("email testing : "  + $scope.email);
     $scope.segments = [];
     $scope.selectedIcon = "";
    // $scope.selectedIcons = "["Globe","Heart"]";
@@ -123,8 +126,8 @@ angular.module('seatsplitterApp')
 
     $scope.map = {
             center: {
-                latitude: 45,
-                longitude: -73
+                latitude: 122,
+                longitude: 37
             },
             zoom: 8
         };
@@ -158,4 +161,4 @@ angular.module('seatsplitterApp')
       $scope.segments = data['results'][0]['data'];
     });
  //   $scope.icons = "[{"value":"Gear","label":"<i class=\"fa fa-gear\"></i> Gear"},{"value":"Globe","label":"<i class=\"fa fa-globe\"></i> Globe"},{"value":"Heart","label":"<i class=\"fa fa-heart\"></i> Heart"},{"value":"Camera","label":"<i class=\"fa fa-camera\"></i> Camera"}]";
-  });
+  }]);
