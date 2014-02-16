@@ -104,6 +104,7 @@ app.controller('AuthenticationController', ['$scope', 'Facebook', function($scop
 
             $scope.logged = true;
             $scope.me(); 
+            $scope.getFriends();
           }
           else
             $scope.login();
@@ -123,6 +124,18 @@ app.controller('AuthenticationController', ['$scope', 'Facebook', function($scop
         });
        };
        
+         /**
+       * Logout
+       */
+      $scope.logout = function() {
+        Facebook.logout(function() {
+          $scope.$apply(function() {
+            $scope.user   = {};
+            $scope.logged = false;  
+          });
+        });
+      }
+      
        
 
     $scope.getLoginStatus = function() {
@@ -151,6 +164,7 @@ app.controller('AuthenticationController', ['$scope', 'Facebook', function($scop
             $scope.salutation = true;
             $scope.byebye     = false;  
             $scope.me();
+            $scope.getFriends();
 
           });
         } else {
@@ -177,6 +191,28 @@ app.controller('AuthenticationController', ['$scope', 'Facebook', function($scop
                 });
             });
         };
+
+        $scope.getFriends = function(){
+        Facebook.api('/me/friends', function(response) {
+             $scope.$apply(function() {
+                 if(response.data) {
+                    $.each(response.data,function(index,friend) {
+                      console.log(friend.name + ' has id:' + friend.id);
+                    });
+                  } else {
+                      console.log("Error!");
+                }
+
+
+                });
+
+       
+
+
+    });
+  };
+
+
 
 
     }]);
