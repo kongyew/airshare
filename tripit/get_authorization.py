@@ -14,7 +14,7 @@ def main(argv):
 		return 1
 	else:
 		consumer_key = argv[0]
-		consumer_secret = argv[2]
+		consumer_secret = argv[1]
 
 	oauth_credential = tripit.OAuthConsumerCredential(consumer_key, consumer_secret)
 	t = tripit.TripIt(oauth_credential, api_url=api_url)
