@@ -65,7 +65,7 @@ app.config(['FacebookProvider', function(FacebookProvider) {
 
 }])
 
-app.controller('AuthenticationController', ['$scope', 'Facebook', function($scope, Facebook) {
+app.controller('AuthenticationController', ['$scope', 'Facebook', '$rootScope', function($scope, Facebook,$rootScope) {
 
     // Here, usually you should watch for when Facebook is ready and loaded
     $scope.$watch(function() {
@@ -187,6 +187,7 @@ app.controller('AuthenticationController', ['$scope', 'Facebook', function($scop
                     console.log("Response" + response);
                     $scope.email = response.email;
                     console.log('Your email id is : '+ response.email);
+                    $rootScope.email = response.email;
                     //alert(fbUser.name  + " "  + fbUser.email);
                 });
             });

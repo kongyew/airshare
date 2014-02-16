@@ -1,13 +1,13 @@
 'use strict';
 //, ["AzureCtrl"]
 angular.module('seatsplitterApp')
-  .controller('SigninCtrl', function ($scope) {
+  .controller('SigninCtrl',['$scope', '$rootScope', function ($scope, $rootScope) {
     $scope.awesomeThings = [
       'Description',
       'AngularJS',
       'Karma'
     ];
-    $scope.azureURL = 'https://developerweek.azure-mobile.net/';
-    $scope.azureAppKey ='nQpITnITZsGULqGjymhntSfiesvxjU59';
+    $rootScope.azureURL = 'https://developerweek.azure-mobile.net/';
+    $rootScope.azureAppKey ='nQpITnITZsGULqGjymhntSfiesvxjU59';
     
-  });
+  }]);
