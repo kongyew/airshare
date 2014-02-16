@@ -3,8 +3,8 @@
 
 
 <!-- INTRO WRAP -->
-<div id="login" class="span12" ng-controller="AuthenticationController">
-    <div class="container">
+<div id="login" class="span12" >
+    <div class="container" data-ng-controller="AuthenticationController">
 
         <div class="row-fluid">
 
@@ -13,17 +13,17 @@
 
                 <form class="form-horizontal well">
                     <section id="LoginFacebook">
-                        <header class="highlight">Sign In Using:</header>
-                        <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
+                        <header class="highlight"data-ng-show="!logged" >Sign In Using:</header>
+                        <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="FBlogin()">Login with Facebook</button>
 
-                        <p class="helper-text">We never share anything without your explicit approval</p>
+                        <p class="helper-text" data-ng-show="!logged" >We never share anything without your explicit approval</p>
                   <!--      <img src="images/yeoman.png" ng-click="authenticate('Facebook')" />-->
                     </section>
 
                     <fieldset>
 
 
-                        <div class="control-group">
+                        <div class="control-group" data-ng-show="!logged" >
                             <h2 class="form-signin-heading">Please sign in</h2>
                                 <label class="control-label">Username</label>
 
@@ -32,7 +32,7 @@
                             </div>
                         </div>
 
-                        <div class="control-group">
+                        <div class="control-group" data-ng-show="!logged" >
 
                                 <label class="control-label">Password</label>
 
@@ -44,7 +44,7 @@
                             </div>
                         </div>
 
-                        <div class="control-group">
+                        <div class="control-group" data-ng-show="!logged" >
                             <div class="controls">
 
                                 <button type="submit" id="submit" class="btn btn-primary button-loading" data-loading-text="Loading...">Sign in</button>
@@ -53,7 +53,23 @@
 
                             </div>
                         </div>
+
+                         <div class="control-group" data-ng-show="logged" >
+                            <div class="controls">
+
+                                 <div class="alert alert-info" data-ng-show="logged">Hello, {{user.name}}</div>
+                                   <div class="alert alert-info" data-ng-show="logged">Hello, {{user}}</div>
+                                <div><!--Comment-->
+                                    <fbdebug val="user"></fbdebug>
+                                </div>
+
+                            </div>
+                        </div>
                     </fieldset>
+
+
+    <button type="button" class="btn btn-danger btn-large" data-ng-show="logged" data-ng-disabled="!facebookReady" 
+    data-ng-click="logout()">Logout</button>
                 </form>
 
 
@@ -63,16 +79,10 @@
         </div>
     </div>
 
-    <div>
-        <div class="alert alert-info" data-ng-show="salutation">Hello, {{user.name}}</div>
-        <div class="alert alert-warning" data-ng-show="byebye">Bye bye :'(</div>
-    </div>
+   
 
-    <button type="button" class="btn btn-danger btn-large" data-ng-show="logged" data-ng-disabled="!facebookReady" data-ng-click="logout()">Logout</button>
 
-    <div>
-        <debug val="user"></debug>
-    </div>
+  
     <div id="test"></div>
 </div>
 </section>
