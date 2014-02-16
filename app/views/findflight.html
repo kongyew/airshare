@@ -97,28 +97,28 @@ AngelList
     -->
 </div>
 <script>
-    var graphRequest = $.ajax({
-        type: 'POST',
-        url: 'http://localhost:7474/db/data/transaction',
-        contentType: 'application/json',
-        dataType: 'json',
-        data: JSON.stringify({
-            "statements": [
-                {
-                    "statement" : "MATCH (b:Person)-[:BOOKED_ON]->(c:Flight)<-[:BOOKED_ON]-(a:Person) WHERE b.address = \"brandon.elizabeth@gmail.com\" RETURN c.marketing_flight_number, a.reputation, a.status, c.date, c.marketing_airline, c.time, c.start_city_name, c.end_airport_city, a.lounge, c.start_airport_code, c.end_airport_code ORDER BY c.marketing_flight_number",
-                    "resultDataContents": ["row", "graph"],
-                    "parameters" : {
-                        "props" : {
-                            "name" : "My Node"
-                        }
-                    }
-                }
-            ]
-        }),
-        processData: false
-    }).done(function(msg) {
-        console.log(JSON.stringify(msg));
-    });
+    // var graphRequest = $.ajax({
+    //     type: 'POST',
+    //     url: 'http://localhost:7474/db/data/transaction',
+    //     contentType: 'application/json',
+    //     dataType: 'json',
+    //     data: JSON.stringify({
+    //         "statements": [
+    //             {
+    //                 "statement" : "MATCH (b:Person)-[:BOOKED_ON]->(c:Flight)<-[:BOOKED_ON]-(a:Person) WHERE b.address = \"brandon.elizabeth@gmail.com\" RETURN c.marketing_flight_number, a.reputation, a.status, c.date, c.marketing_airline, c.time, c.start_city_name, c.end_airport_city, a.lounge, c.start_airport_code, c.end_airport_code ORDER BY c.marketing_flight_number",
+    //                 "resultDataContents": ["row", "graph"],
+    //                 "parameters" : {
+    //                     "props" : {
+    //                         "name" : "My Node"
+    //                     }
+    //                 }
+    //             }
+    //         ]
+    //     }),
+    //     processData: false
+    // }).done(function(msg) {
+    //     console.log(JSON.stringify(msg));
+    // });
 </script>
 <style type="text/css">
 #tab1 .flight-segment {
