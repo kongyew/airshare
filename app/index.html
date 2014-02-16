@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AirShare - sharing seats on flights">
+    <meta name="author" content="author">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+
+        <!-- build:css({.tmp,app}) styles/main.css -->
+        <link rel="stylesheet" href="styles/main.css">
+        <!-- endbuild -->
+    <link rel="shortcut icon" href="assets/ico/favicon.png">
+
+    <title>AirShare</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css" rel="stylesheet">
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/smoothscroll.js"></script>
+    
+
+  </head>
+  <body ng-app="seatsplitterApp" data-spy="scroll" data-offset="0" data-target="#navigation">
+    <!-- Fixed navbar -->
+	    <div id="navigation" class="navbar navbar-default navbar-fixed-top" bs-navbar data-ng-controller="MainCtrl">
+	      <div class="container-fluid">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" href="#"><b>AirShare</b></a>
+	        </div>
+	        <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li data-match-route="/?(navbar)?" class="smothscroll"><a href="#/">Home</a></li>
+                    <li data-match-route="/desc" class="smothscroll"><a href="#/desc">Features</a></li>
+                    <li data-match-route="/findflight" class="smothscroll"><a href="#/findflight">Find Flight</a></li>
+
+                    <!--
+                    <li data-match-route="/showcase" class="smothscroll"><a href="#/showcase">Showcase</a></li>
+                    -->
+                    <li data-match-route="/contact" class="smothscroll"><a href="#/contact">Contact</a></li>
+
+                </ul>
+                <ul>
+                    <li class="pull-right" >
+                    <a href="#/user/signin" class="smothscroll">Login&nbsp;</a></li>
+                    
+                    <li class="pull-right" >
+                     <a href="#/user/signin" class="smothscroll">Sign-up&nbsp;</a></li>
+                </ul>
+	        </div><!--/nav-collapse -->
+
+          </div>
+	    </div>
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="assets/js/bootstrap.js"></script>
+	<script>
+	$('.carousel').carousel({
+	  interval: 3500
+	})
+	</script>
+
+    <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!--[if lt IE 9]>
+
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div class="container" ng-view=""></div>
+    <!-- FOOTER -->
+
+    <div id="bottom" class="container-fluid">
+        <div class="container">
+            <div class="row" colspan="12">
+            <div class="span4">
+                <a href="/">&nbsp;&nbsp;&nbsp;&nbsp;
+                <img alt="footer-logo" width="15" height="15" src="assets/img/logo_16x16.jpg">
+                </a><br>
+            </div>
+            <div class="span8">
+            <p class="copyright">Created by <a href="http://www.truesight.co">TrueSight.CO All Rights Reserved.</a>
+            <a href="/privacy">Privacy Policy</a>
+
+            </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+     <script>
+       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+       ga('create', 'UA-XXXXX-X');
+       ga('send', 'pageview');
+    </script>
+
+
+    <script src='http://ajax.aspnetcdn.com/ajax/mobileservices/MobileServices.Web-1.1.0.min.js'></script>
+  
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
+
+        <!-- build:js scripts/plugins.js -->
+        <script src="bower_components/sass-bootstrap/js/affix.js"></script>
+        <script src="bower_components/sass-bootstrap/js/alert.js"></script>
+        <script src="bower_components/sass-bootstrap/js/button.js"></script>
+        <script src="bower_components/sass-bootstrap/js/carousel.js"></script>
+        <script src="bower_components/sass-bootstrap/js/transition.js"></script>
+        <script src="bower_components/sass-bootstrap/js/collapse.js"></script>
+        <script src="bower_components/sass-bootstrap/js/dropdown.js"></script>
+        <script src="bower_components/sass-bootstrap/js/modal.js"></script>
+        <script src="bower_components/sass-bootstrap/js/scrollspy.js"></script>
+        <script src="bower_components/sass-bootstrap/js/tab.js"></script>
+        <script src="bower_components/sass-bootstrap/js/tooltip.js"></script>
+        <script src="bower_components/sass-bootstrap/js/popover.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/modules.js -->
+          <script src="bower_components/angular-animate/angular-animate.js"></script>
+        <script src="bower_components/angular-facebook/lib/angular-facebook.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
+        <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
+        <script src='http://maps.googleapis.com/maps/api/js?sensor=false'></script>
+        <script src='bower_components/underscore/underscore-min.js'></script>
+        <script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
+
+    <!-- endbuild -->
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/DescCtrl.js"></script>
+        <script src="scripts/controllers/HomeCtrl.js"></script>
+        <script src="scripts/controllers/ShowCaseCtrl.js"></script>
+        <script src="scripts/controllers/FindFlightCtrl.js"></script>
+        <script src="scripts/controllers/AzureCtrl.js"></script>
+        <script src="scripts/controllers/SigninCtrl.js"></script>
+
+
+
+        <!-- endbuild -->
+  </body>
+</html>

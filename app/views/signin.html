@@ -1,0 +1,80 @@
+<section id="signin" name="signin">
+
+
+
+<!-- INTRO WRAP -->
+<div id="login" class="span12">
+    <div class="container">
+
+        <div class="row-fluid">
+
+            <div class="span4" id="login-side"></div>
+            <div class="span6 text-center login-form" id="form-login">
+
+
+                <form class="form-horizontal well">
+                    <section id="LoginFacebook">
+                        <header class="highlight">Sign In Using:</header>
+                        <button type="button" class="btn btn-primary btn-large" data-ng-show="!logged" data-ng-disabled="!facebookReady" data-ng-click="IntentLogin()">Login with Facebook</button>
+
+                        <p class="helper-text">We never share anything without your explicit approval</p>
+                        <img src="images/facebooklogin.png" ng-click="authenticate('Facebook')" />
+                    </section>
+
+                    <fieldset>
+
+
+                        <div class="control-group">
+                            <h2 class="form-signin-heading">Please sign in</h2>
+                                <label class="control-label">Username</label>
+
+                            <div class="controls">
+                                <input type="text" id="user_email" placeholder="Email Address" class="input-large span10" size="30">
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+
+                                <label class="control-label">Password</label>
+
+                            <div class="controls">
+                                <input type="password" placeholder="Password" class="input-large span10" size="30">
+
+                                <!-- Help-block example -->
+                                <!-- <span class="help-block">Example block-level help text here.</span> -->
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <div class="controls">
+
+                                <button type="submit" id="submit" class="btn btn-primary button-loading" data-loading-text="Loading...">Sign in</button>
+
+                                <button type="button" class="btn btn-secondary button-loading" data-loading-text="Loading...">Forgot Password</button>
+
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+
+
+            </div>
+            <div class="span4" id="login-side"></div>
+        </div>
+    </div>
+
+    <div>
+        <div class="alert alert-info" data-ng-show="salutation">Hello, {{user.name}}</div>
+        <div class="alert alert-warning" data-ng-show="byebye">Bye bye :'(</div>
+    </div>
+
+    <button type="button" class="btn btn-danger btn-large" data-ng-show="logged" data-ng-disabled="!facebookReady" data-ng-click="logout()">Logout</button>
+
+    <div>
+        <debug val="user"></debug>
+    </div>
+    <div id="test"></div>
+</div>
+</section>
+
