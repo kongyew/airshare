@@ -91,9 +91,9 @@ app.controller('AuthenticationController', ['$scope', 'Facebook', function($scop
           else
             $scope.login();
         });
-        });
+        }, {scope: 'email,user_likes,read_friendlists,user_online_presence,friends_online_presence'});
     };
-
+//https://developers.facebook.com/docs/reference/login/extended-permissions
 
       /**
        * IntentLogin
@@ -108,7 +108,7 @@ app.controller('AuthenticationController', ['$scope', 'Facebook', function($scop
           }
           else
             $scope.login();
-        });
+        }, {scope: 'email,user_likes'});
       };
       
  /**
@@ -196,7 +196,10 @@ app.controller('AuthenticationController', ['$scope', 'Facebook', function($scop
         Facebook.api('/me/friends', function(response) {
              $scope.$apply(function() {
                  if(response.data) {
+                    $scope.friends = response.data;
+                      
                     $.each(response.data,function(index,friend) {
+
                       console.log(friend.name + ' has id:' + friend.id);
                     });
                   } else {
