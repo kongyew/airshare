@@ -4,7 +4,7 @@
   "dependencies": {
       "express": "latest",
       "prerender-node": "latest",
-       "sendgrid": "0.4.4"
+       "sendgrid": "3.0.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
